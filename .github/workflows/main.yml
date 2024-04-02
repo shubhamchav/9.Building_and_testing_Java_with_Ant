@@ -25,12 +25,14 @@ jobs:
 
     - name: Download Apache Ant
       run: |
-        mkdir ant
-        cd ant
-        curl -O https://downloads.apache.org/ant/binaries/apache-ant-1.10.12-bin.tar.gz
-        tar -xf apache-ant-1.10.12-bin.tar.gz
-        export ANT_HOME=$(pwd)/apache-ant-1.10.12
-        export PATH=$ANT_HOME/bin:$PATH
+       mkdir ant || exit 1
+       cd ant || exit 1
+       curl -O https://downloads.apache.org/ant/binaries/apache-ant-1.10.12-bin.tar.gz || exit 1
+       tar -xf apache-ant-1.10.12-bin.tar.gz || exit 1
+       export ANT_HOME=$(pwd)/apache-ant-1.10.12
+       export PATH=$ANT_HOME/bin:$PATH
+       continue-on-error: true
+    
 
     - name: Build with Ant
       run: ant build
