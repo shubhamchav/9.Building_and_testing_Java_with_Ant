@@ -27,9 +27,9 @@ jobs:
       run: |
        mkdir ant || exit 1
        cd ant || exit 1
-       curl -O https://downloads.apache.org/ant/binaries/apache-ant-1.10.12-bin.tar.gz || exit 1
+       curl -O https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.14-bin.zip || exit 1
        tar -xf apache-ant-1.10.12-bin.tar.gz || exit 1
-       export ANT_HOME=$(pwd)/apache-ant-1.10.12
+       export ANT_HOME=$(pwd)/apache-ant-1.10.14
        export PATH=$ANT_HOME/bin:$PATH
        continue-on-error: true
     
